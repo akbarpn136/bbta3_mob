@@ -1,0 +1,3 @@
+rootProject.name = 'bbta3'
+
+include ':app'
