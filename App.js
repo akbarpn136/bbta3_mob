@@ -7,46 +7,52 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import { 
+  Container, 
+  Header, 
+  Title, 
+  Content, 
+  Footer, 
+  FooterTab, 
+  Button,
+  Body,
+  Text,
+  Icon
+} from 'native-base'
 import { useScreens } from 'react-native-screens';
 
 useScreens();
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-
 export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
-    );
+      <Container>
+        <Header noLeft>
+          <Body>
+            <Title>BBTA3 BPPT</Title>
+          </Body>
+        </Header>
+
+        <Content>
+          <Text>
+            This is Content Section
+          </Text>
+        </Content>
+
+        <Footer>
+          <FooterTab>
+            <Button active>
+              <Icon active name="home" />
+            </Button>
+            <Button>
+              <Icon name="book" />
+            </Button>
+            <Button>
+              <Icon name="person" />
+            </Button>
+          </FooterTab>
+        </Footer>
+      </Container>
+    )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
