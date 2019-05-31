@@ -1,12 +1,33 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { 
+    Container,
+    Header,
+    Title,
+    Content,
+    Button,
+    Left,
+    Right,
+    Body,
+    Icon,
+    Text 
+} from 'native-base'
 
 class Utama extends React.Component {
     render() {
         return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>Home!</Text>
-            </View>
+            <Container>
+                <Header noLeft>
+                    <Body>
+                        <Title>BBTA3 BPPT</Title>
+                    </Body>
+                    <Right />
+                </Header>
+                <Content padder>
+                    <Text>
+                        Daftar keahlian
+                    </Text>
+                </Content>
+            </Container>
         );
     }
 }
