@@ -1,18 +1,25 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {FlatList} from 'react-native'
 import { 
     Container,
     Header,
     Title,
     Content,
-    Button,
-    Left,
     Right,
     Body,
-    Icon,
-    Text 
+    Spinner
 } from 'native-base'
 
+import CardKeahlian from '../components/cardKeahlian'
+
+import {fetchKeahlian} from '../stores/actions/keahlianAction'
+
 class Utama extends React.Component {
+    componentDidMount() {
+        this.props.fetchKeahlian()
+    }
+
     render() {
         return (
             <Container>
@@ -23,13 +30,31 @@ class Utama extends React.Component {
                     <Right />
                 </Header>
                 <Content padder>
-                    <Text>
-                        Daftar keahlian
-                    </Text>
+                    {
+                        this.props.keahlian.length == 0 ? 
+                        <Spinner color='grey' /> :
+                        <FlatList
+                            data={this.props.keahlian}
+                            keyExtractor={(item, index) => index.toString()}
+                            renderItem={({ item }) => <CardKeahlian data={item} />}
+                        />
+                    }
                 </Content>
             </Container>
         );
     }
 }
 
-export default Utama
+const mapStateToProps = state => {
+    return {
+        keahlian: state.keahlian
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchKeahlian: () => dispatch(fetchKeahlian())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Utama)
