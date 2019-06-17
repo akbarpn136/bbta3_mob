@@ -8,7 +8,9 @@ import {
 
 class CardKeahlian extends React.Component {
     goToKeahlianRinci = () => {
-        this.props.push.navigate('KeahlianRinci')
+        this.props.push.navigate('KeahlianRinci', {
+            keahlianUrl: this.props.data.link
+        })
     }
 
     render() {
