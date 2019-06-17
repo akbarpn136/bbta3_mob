@@ -1,13 +1,13 @@
 import React from 'react'
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation'
 
-import UtamaPage from '../pages/utama'
+import {KeahlianNavigator} from '../routes/keahlian'
 import InfoPage from '../pages/info'
 import PelangganPage from '../pages/pelanggan'
 import BottomBar from '../components/bottomBar'
 
 const TabNav = createBottomTabNavigator({
-    Utama: UtamaPage,
+    Utama: KeahlianNavigator,
     Info: InfoPage,
     Pelanggan: PelangganPage
 }, {
