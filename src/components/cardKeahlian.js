@@ -7,13 +7,13 @@ import {
 } from 'native-base'
 
 class CardKeahlian extends React.Component {
-    constructor(props) {
-        super(props)
+    goToKeahlianRinci = () => {
+        this.props.push.navigate('KeahlianRinci')
     }
 
     render() {
         return (
-            <TouchableOpacity onPress={() => alert('Klik')}>
+            <TouchableOpacity onPress={() => this.goToKeahlianRinci()}>
                 <Card>
                     <CardItem cardBody>
                         <View style={styles.textOverlay}>
