@@ -1,5 +1,5 @@
 import React from 'react'
-import {Image, View, StyleSheet} from 'react-native'
+import {Image, View, TouchableOpacity, StyleSheet} from 'react-native'
 import {
     Card,
     CardItem,
@@ -13,35 +13,43 @@ class CardKeahlian extends React.Component {
 
     render() {
         return (
-            <Card>
-                <CardItem cardBody>
-                    <View style={styles.textOverlay}>
-                        <Text style={styles.textColor}>{this.props.data.title.rendered}</Text>
-                    </View>
-                    <Image source={{ 
-                        uri: this.props.data._embedded["wp:featuredmedia"]["0"].source_url
-                    }} style={{ height: 200, width: null, flex: 1 }} />
-                </CardItem>
-            </Card>
+            <TouchableOpacity onPress={() => alert('Klik')}>
+                <Card>
+                    <CardItem cardBody>
+                        <View style={styles.textOverlay}>
+                                <Text style={styles.textCustom}>{this.props.data.title.rendered}</Text>
+                        </View>
+
+                        <Image source={{uri: this.props.data._embedded["wp:featuredmedia"]["0"].source_url}} 
+                            style={styles.imageOverlay} />
+                    </CardItem>
+                </Card>
+            </TouchableOpacity>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    textColor: {
+    textCustom: {
         color: 'white',
-        fontSize: 48
+        fontSize: 43,
+        textTransform: 'uppercase'
+    },
+    imageOverlay: {
+        height: 200,
+        width: null,
+        flex: 1
     },
     textOverlay: {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        position: 'absolute', 
+        position: 'absolute',
         zIndex: 1,
-        top: 0, 
-        left: 0, 
-        right: 0, 
+        top: 0,
+        left: 0,
+        right: 0,
         bottom: 0,
     }
 })
