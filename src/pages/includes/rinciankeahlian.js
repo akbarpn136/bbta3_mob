@@ -9,9 +9,10 @@ class RincianKeahlian extends React.Component {
     })
 
     render() {
+        const keahlian_url = this.props.navigation.getParam('keahlianUrl', 'http://bbta3.bppt.go.id/aerodynamics-2/')
         return (
             <WebView
-                source={{ uri: 'http://bbta3.bppt.go.id/aerodynamics-2/' }}
+                source={{ uri: keahlian_url }}
             />
         );
     }
