@@ -1,14 +1,20 @@
 let berita = []
 
-export const beritaReducer = (state = berita, action) => {
+export const beritaReducer = (state=berita, action) => {
     switch (action.type) {
         case "TAMBAH_BERITA":
-            state.push(action.payload)
+            action.payload.forEach(item => {
+                berita.push(item)
+            })
 
-            return state
+            return berita
 
         case "BACA_BERITA":
             return state
+
+        case "RESET_BERITA":
+            berita = []
+            return berita
 
         default:
             return berita
