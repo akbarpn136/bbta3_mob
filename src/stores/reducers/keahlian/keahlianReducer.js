@@ -1,15 +1,16 @@
-let keahlian = null
+let keahlian = []
 
 export const keahlianReducer = (state=keahlian, action) => {
     switch (action.type) {
         case "READ_KEAHLIAN":
-            return action.payload
+            return state
 
         case "SET_KEAHLIAN":
             keahlian = action.payload
+
             return keahlian
 
         default:
-            return []
+            return keahlian
     }
 }
