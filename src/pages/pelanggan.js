@@ -5,9 +5,10 @@ class Pelanggan extends React.Component {
     render() {
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>Pelanggan!</Text>
+                <Text>Indeks Kepuasan Pelanggan!</Text>
+                <Text>Segera</Text>
             </View>
-        );
+        )
     }
 }
 
