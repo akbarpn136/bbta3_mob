@@ -42,8 +42,8 @@ class ChildStacked extends React.Component {
 
 class TopBar extends React.Component {
     render() {
-        if (this.props.childStacked) return (<ChildStacked push={this.props.push} />)
-        else return (<ParentStacked />)
+        if (this.props.childStacked) return (<ChildStacked title={this.props.title} push={this.props.push} />)
+        else return (<ParentStacked title={this.props.title} />)
     }
 }
 
