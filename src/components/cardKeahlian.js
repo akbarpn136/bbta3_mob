@@ -22,7 +22,7 @@ class CardKeahlian extends React.Component {
                                 <Text style={styles.textCustom}>{this.props.data.title.rendered}</Text>
                         </View>
 
-                        <Image source={{uri: this.props.data._embedded["wp:featuredmedia"]["0"].source_url}} 
+                        <Image source={{uri: this.props.data._embedded["wp:featuredmedia"][0].source_url}} 
                             style={styles.imageOverlay} />
                     </CardItem>
                 </Card>
