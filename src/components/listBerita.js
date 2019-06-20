@@ -11,17 +11,22 @@ import {
 
 class ListBerita extends React.Component {
     render() {
+        const hasFeatureMedia = this.props.data._embedded["wp:featuredmedia"]
+
         return (
             <ListItem thumbnail>
               <Left>
-                <Thumbnail square source={{ uri: 'http://bbta3.bppt.go.id/wp-content/uploads/2019/06/Cover-Berita-BBTA3-1.jpg' }} />
+                {
+                  hasFeatureMedia ? 
+                  <Thumbnail square source={{ uri: hasFeatureMedia[0].source_url}} /> :
+                  <Thumbnail square source={{ uri: 'http://bbta3.bppt.go.id/wp-content/uploads/2019/05/bbta3_cover.jpg'}} />
+                }
               </Left>
               <Body>
-                <Text>Sankhadeep</Text>
-                <Text note numberOfLines={1}>Its time to build a difference . .</Text>
+                <Text>{this.props.data.title.rendered}</Text>
               </Body>
               <Right>
-                <Button transparent>
+                <Button transparent onPress={() => {this.props.push.navigate('RincianBerita', {beritaUrl: this.props.data.link})}}>
                   <Text>Lihat</Text>
                 </Button>
               </Right>
