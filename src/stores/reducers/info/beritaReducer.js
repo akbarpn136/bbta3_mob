@@ -1,10 +1,13 @@
-let berita = []
+let berita = {
+    data: [],
+    loading: true
+}
 
 export const beritaReducer = (state=berita, action) => {
     switch (action.type) {
         case "TAMBAH_BERITA":
             action.payload.forEach(item => {
-                berita.push(item)
+                berita.data.push(item)
             })
 
             return berita
@@ -13,7 +16,18 @@ export const beritaReducer = (state=berita, action) => {
             return state
 
         case "RESET_BERITA":
-            berita = []
+            berita.data = []
+
+            return berita
+
+        case "LOADING":
+            berita.loading = true
+
+            return berita
+
+        case "UNLOADING":
+            berita.loading = false
+
             return berita
 
         default:

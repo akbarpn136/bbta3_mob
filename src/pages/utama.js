@@ -25,14 +25,12 @@ class Utama extends React.Component {
         return (
             <Container>
                 <Content padder>
-                    {
-                        this.props.keahlian.length > 0 ? <FlatList
-                            data={this.props.keahlian}
-                            keyExtractor={(item, index) => index.toString()}
-                            renderItem={({ item }) => <CardKeahlian data={item} push={this.props.navigation} />}
-                        /> :
-                        <Spinner />
-                    }
+                    <FlatList
+                        data={this.props.keahlian}
+                        keyExtractor={(item, index) => index.toString()}
+                        renderItem={({ item }) => <CardKeahlian data={item} push={this.props.navigation} />}
+                        ListHeaderComponent={this.props.keahlian.length == 0 && <Spinner color='gray' />}
+                    />
                 </Content>
             </Container>
         );

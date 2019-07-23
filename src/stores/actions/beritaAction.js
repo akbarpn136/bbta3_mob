@@ -8,6 +8,7 @@ export const fetchBerita = (id=1) => {
         })
         const data = await body.json()
 
+        dispatch(unLoadingBerita())
         dispatch(setBerita(data))
     }
 }
@@ -22,5 +23,17 @@ export const setBerita = (data) => {
 export const bacaBerita = () => {
     return {
         type: 'READ_BERITA'
+    }
+}
+
+export const loadingBerita = () => {
+    return {
+        type: 'LOADING'
+    }
+}
+
+export const unLoadingBerita = () => {
+    return {
+        type: 'UNLOADING'
     }
 }

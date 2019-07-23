@@ -1,6 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {FlatList} from 'react-native'
+import {
+    Container, 
+    Button,
+    Text,
+    Spinner,
+    Body
+} from 'native-base'
 
 import ListBerita from '../components/listBerita'
 import TopBar from '../components/topBar'
@@ -17,9 +24,17 @@ class Info extends React.Component {
 
     render() {
         return (
-            <FlatList data={this.props.berita}
-                keyExtractor={(item, index) => index.toString()}
-                renderItem={({item}) => <ListBerita data={item} push={this.props.navigation} />} />
+            <Container>
+                <FlatList data={this.props.berita.data}
+                    keyExtractor={(item, index) => index.toString()}
+                    renderItem={({item}) => <ListBerita data={item} push={this.props.navigation} />}
+                    ListFooterComponent={
+                        <Body>
+                            <Button><Text>FOOTER {this.props.berita.loading.toString()}</Text></Button>
+                        </Body>
+                    }
+                />
+            </Container>
         )
     }
 }
