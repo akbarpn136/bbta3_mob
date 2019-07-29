@@ -50,7 +50,7 @@ class _KeahlianState extends State<Keahlian> {
         onTap: () {
           chromeSafariBrowser.open(link, options: {
             "addShareButton": true,
-            "toolbarBackgroundColor": "#000000",
+            "toolbarBackgroundColor": "#FFE53935",
             "dismissButtonStyle": 1,
             "preferredBarTintColor": "#000000",
           });
