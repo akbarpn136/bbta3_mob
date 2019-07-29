@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:flutter_inappbrowser/flutter_inappbrowser.dart';
 
 import 'package:bbta3/src/helpers/styles.dart';
 import 'package:bbta3/src/services/ahli.dart';
-
-import 'package:bbta3/src/pages/keahlian_tertentu.dart';
 
 
 class Keahlian extends StatefulWidget {
@@ -27,6 +26,7 @@ class _KeahlianState extends State<Keahlian> {
   void buildCardKeahlian() async {
     Ahli keahlian = Ahli();
     List<dynamic> dataKeahlian = await keahlian.readKeahlian();
+    ChromeSafariBrowser chromeSafariBrowser = ChromeSafariBrowser(InAppBrowser());
     isLoading = false;
 
     for (Map<String, dynamic> ahli in dataKeahlian) {
@@ -48,15 +48,12 @@ class _KeahlianState extends State<Keahlian> {
           ],
         ),
         onTap: () {
-          Navigator.push(
-            context, 
-            MaterialPageRoute(
-              builder: (BuildContext context) {
-                return KeahlianTertentu(title: namaKeahlian,);
-              }
-            ),
-          );
-          print(link);
+          chromeSafariBrowser.open(link, options: {
+            "addShareButton": true,
+            "toolbarBackgroundColor": "#000000",
+            "dismissButtonStyle": 1,
+            "preferredBarTintColor": "#000000",
+          });
         },
       );
 
