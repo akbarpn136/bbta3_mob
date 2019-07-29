@@ -5,6 +5,8 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:bbta3/src/helpers/styles.dart';
 import 'package:bbta3/src/services/ahli.dart';
 
+import 'package:bbta3/src/pages/keahlian_tertentu.dart';
+
 
 class Keahlian extends StatefulWidget {
   @override
@@ -46,6 +48,14 @@ class _KeahlianState extends State<Keahlian> {
           ],
         ),
         onTap: () {
+          Navigator.push(
+            context, 
+            MaterialPageRoute(
+              builder: (BuildContext context) {
+                return KeahlianTertentu(title: namaKeahlian,);
+              }
+            ),
+          );
           print(link);
         },
       );
