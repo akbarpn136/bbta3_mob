@@ -32,7 +32,6 @@ class _KeahlianState extends State<Keahlian> {
       String imageURL = ahli['_embedded']['wp:featuredmedia'][0]['source_url'];
       String link = ahli['link'];
       Widget ahliCard = GestureDetector(
-        behavior: HitTestBehavior.,
         child: Stack(
           alignment: AlignmentDirectional.center,
           children: <Widget>[
