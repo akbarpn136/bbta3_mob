@@ -7,7 +7,6 @@ import 'package:bbta3/src/pages/keahlian.dart';
 import 'package:bbta3/src/pages/info.dart';
 import 'package:bbta3/src/pages/pelanggan.dart';
 
-
 class Utama extends StatefulWidget {
   @override
   _UtamaState createState() => _UtamaState();
@@ -24,11 +23,17 @@ class _UtamaState extends State<Utama> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        fontFamily: 'FiraSans'
-      ),
+      theme: ThemeData(fontFamily: 'FiraSans'),
       home: Scaffold(
-        appBar: Navbar.make('BBTA3 BPPT'),
+        appBar: Navbar.make('BBTA3 BPPT', () {
+          showDialog(
+            context: context,
+            barrierDismissible: false, // user must tap button!
+            builder: (BuildContext context) {
+              return Text('OKKE');
+            },
+          );
+        }),
         body: _listPage.elementAt(_selectedIndex),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedIndex,
