@@ -6,7 +6,6 @@ import 'package:flutter_inappbrowser/flutter_inappbrowser.dart';
 import 'package:bbta3/src/helpers/styles.dart';
 import 'package:bbta3/src/services/ahli.dart';
 
-
 class Keahlian extends StatefulWidget {
   @override
   _KeahlianState createState() => _KeahlianState();
@@ -26,27 +25,17 @@ class _KeahlianState extends State<Keahlian> {
   void buildCardKeahlian() async {
     Ahli keahlian = Ahli();
     List<dynamic> dataKeahlian = await keahlian.readKeahlian();
-    ChromeSafariBrowser chromeSafariBrowser = ChromeSafariBrowser(InAppBrowser());
+    ChromeSafariBrowser chromeSafariBrowser =
+        ChromeSafariBrowser(InAppBrowser());
     isLoading = false;
 
     for (Map<String, dynamic> ahli in dataKeahlian) {
       String namaKeahlian = ahli['title']['rendered'];
       String imageURL = ahli['_embedded']['wp:featuredmedia'][0]['source_url'];
       String link = ahli['link'];
-      Widget ahliCard = GestureDetector(
-        child: Stack(
-          alignment: AlignmentDirectional.center,
-          children: <Widget>[
-            Card(
-              elevation: 1.5,
-              child: Image.network(imageURL, fit: BoxFit.fitHeight,),
-            ),
-            Text(
-              namaKeahlian,
-              style: KeahlianTitleOverflow,
-            ),
-          ],
-        ),
+      Widget ahliCard = InkWell(
+        borderRadius: BorderRadius.circular(10.0),
+        highlightColor: Colors.blue.shade100,
         onTap: () {
           chromeSafariBrowser.open(link, options: {
             "addShareButton": true,
@@ -55,6 +44,43 @@ class _KeahlianState extends State<Keahlian> {
             "preferredBarTintColor": "#000000",
           });
         },
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(11.5),
+            child: Stack(
+              children: <Widget>[
+                Image.network(
+                  imageURL,
+                  fit: BoxFit.cover,
+                  height: 1000.0,
+                ),
+                Positioned(
+                  bottom: 0.0,
+                  left: 0.0,
+                  right: 0.0,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Color.fromARGB(200, 0, 0, 0),
+                          Color.fromARGB(0, 0, 0, 0)
+                        ],
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.topCenter,
+                      ),
+                    ),
+                    padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                    child: Text(
+                      namaKeahlian,
+                      style: KeahlianTitleOverflow,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       );
 
       setState(() {
@@ -99,10 +125,13 @@ class _KeahlianState extends State<Keahlian> {
           ),
           Expanded(
             flex: 5,
-            child: isLoading ? buildSpinner() : CarouselSlider(
-              enableInfiniteScroll: false,
-              items: keahlianCard,
-            ),
+            child: isLoading
+                ? buildSpinner()
+                : CarouselSlider(
+                    enableInfiniteScroll: false,
+                    items: keahlianCard,
+                    enlargeCenterPage: true,
+                  ),
           ),
         ],
       ),
