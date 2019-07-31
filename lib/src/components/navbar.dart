@@ -3,8 +3,10 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
 import 'package:bbta3/src/helpers/styles.dart';
 
+import 'package:bbta3/src/components/bottom_tentang.dart';
+
 class Navbar {
-  static AppBar make(String title, Function onPress) {
+  static AppBar make(String title) {
     return AppBar(
       elevation: 0.5,
       leading: Container(
@@ -24,10 +26,21 @@ class Navbar {
       ),
       backgroundColor: Colors.red.shade600,
       actions: <Widget>[
-        IconButton(
-          icon: Icon(EvaIcons.questionMarkCircleOutline),
-          color: Colors.white,
-          onPressed: onPress,
+        Builder(
+          builder: (context) {
+            return IconButton(
+              icon: Icon(EvaIcons.questionMarkCircleOutline),
+              color: Colors.white,
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  builder: (context) {
+                    return BottomTentang();
+                  }
+                );
+              },
+            );
+          },
         ),
       ],
     );
