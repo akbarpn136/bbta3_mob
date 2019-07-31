@@ -101,15 +101,7 @@ class _KeahlianState extends State<Keahlian> {
     return SafeArea(
       child: Column(
         children: <Widget>[
-          Expanded(
-            flex: 3,
-            child: Container(
-              margin: EdgeInsets.only(
-                top: 25.0,
-              ),
-              child: Image.asset('images/technologies.png'),
-            ),
-          ),
+          Image.asset('images/technologies.jpg'),
           Expanded(
             flex: 1,
             child: Container(
