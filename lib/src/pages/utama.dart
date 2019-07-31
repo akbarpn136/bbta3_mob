@@ -25,9 +25,7 @@ class _UtamaState extends State<Utama> {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'FiraSans'),
       home: Scaffold(
-        appBar: Navbar.make('BBTA3 BPPT', () {
-          
-        }),
+        appBar: Navbar.make('BBTA3 BPPT'),
         body: _listPage.elementAt(_selectedIndex),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedIndex,
