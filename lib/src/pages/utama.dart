@@ -26,13 +26,7 @@ class _UtamaState extends State<Utama> {
       theme: ThemeData(fontFamily: 'FiraSans'),
       home: Scaffold(
         appBar: Navbar.make('BBTA3 BPPT', () {
-          showDialog(
-            context: context,
-            barrierDismissible: false, // user must tap button!
-            builder: (BuildContext context) {
-              return Text('OKKE');
-            },
-          );
+          
         }),
         body: _listPage.elementAt(_selectedIndex),
         bottomNavigationBar: BottomNavigationBar(
