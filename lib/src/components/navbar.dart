@@ -24,12 +24,10 @@ class Navbar {
       ),
       backgroundColor: Colors.red.shade600,
       actions: <Widget>[
-        Container(
-          child: IconButton(
-            icon: Icon(EvaIcons.questionMarkCircleOutline),
-            color: Colors.white,
-            onPressed: onPress,
-          ),
+        IconButton(
+          icon: Icon(EvaIcons.questionMarkCircleOutline),
+          color: Colors.white,
+          onPressed: onPress,
         ),
       ],
     );
