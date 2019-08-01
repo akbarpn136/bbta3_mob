@@ -36,8 +36,8 @@ class _KeahlianState extends State<Keahlian> {
       Widget ahliCard = InkWell(
         borderRadius: BorderRadius.circular(10.0),
         highlightColor: Colors.blue.shade100,
-        onTap: () {
-          chromeSafariBrowser.open(link, options: {
+        onTap: () async {
+          await chromeSafariBrowser.open(link, options: {
             "addShareButton": true,
             "toolbarBackgroundColor": "#FFE53935",
             "dismissButtonStyle": 1,
