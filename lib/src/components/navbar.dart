@@ -33,11 +33,16 @@ class Navbar {
               color: Colors.white,
               onPressed: () {
                 showModalBottomSheet(
-                  context: context,
-                  builder: (context) {
-                    return BottomTentang();
-                  }
-                );
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(8.0),
+                        topRight: Radius.circular(8.0),
+                      ),
+                    ),
+                    context: context,
+                    builder: (context) {
+                      return BottomTentang();
+                    });
               },
             );
           },
