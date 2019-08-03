@@ -44,86 +44,107 @@ class BottomTentang extends StatelessWidget {
           SizedBox(
             height: 21.0,
           ),
-          Row(
-            children: <Widget>[
-              ButtonTheme(
-                minWidth: 55.0,
-                buttonColor: Color(0xff3b5998),
-                child: RaisedButton(
-                  textColor: Colors.white,
-                  child: Icon(
-                    FontAwesomeIcons.facebookF,
-                    size: 18.0,
+          Container(
+            height: 50.0,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.only(right: 10.0,),
+                  child: ButtonTheme(
+                    minWidth: 55.0,
+                    buttonColor: Color(0xff3b5998),
+                    child: RaisedButton(
+                      textColor: Colors.white,
+                      child: Icon(
+                        FontAwesomeIcons.facebookF,
+                        size: 18.0,
+                      ),
+                      onPressed: () =>
+                          visitSite('https://www.facebook.com/BBTA3/'),
+                    ),
                   ),
-                  onPressed: () => visitSite('https://www.facebook.com/BBTA3/'),
                 ),
-              ),
-              SizedBox(width: 8.0),
-              ButtonTheme(
-                minWidth: 55.0,
-                buttonColor: Color(0xffE1306C),
-                child: RaisedButton(
-                  textColor: Colors.white,
-                  child: Icon(
-                    FontAwesomeIcons.instagram,
-                    size: 18.0,
+                Container(
+                  margin: EdgeInsets.only(right: 10.0,),
+                  child: ButtonTheme(
+                    minWidth: 55.0,
+                    buttonColor: Color(0xffE1306C),
+                    child: RaisedButton(
+                      textColor: Colors.white,
+                      child: Icon(
+                        FontAwesomeIcons.instagram,
+                        size: 18.0,
+                      ),
+                      onPressed: () =>
+                          visitSite('https://www.instagram.com/bbta3.bppt/'),
+                    ),
                   ),
-                  onPressed: () => visitSite('https://www.instagram.com/bbta3.bppt/'),
                 ),
-              ),
-              SizedBox(width: 8.0),
-              ButtonTheme(
-                minWidth: 55.0,
-                buttonColor: Color(0xff55acee),
-                child: RaisedButton(
-                  textColor: Colors.white,
-                  child: Icon(
-                    FontAwesomeIcons.twitter,
-                    size: 18.0,
+                Container(
+                  margin: EdgeInsets.only(right: 10.0,),
+                  child: ButtonTheme(
+                    minWidth: 55.0,
+                    buttonColor: Color(0xff55acee),
+                    child: RaisedButton(
+                      textColor: Colors.white,
+                      child: Icon(
+                        FontAwesomeIcons.twitter,
+                        size: 18.0,
+                      ),
+                      onPressed: () =>
+                          visitSite('https://twitter.com/@bbta3_bppt'),
+                    ),
                   ),
-                  onPressed: () => visitSite('https://twitter.com/@bbta3_bppt'),
                 ),
-              ),
-              SizedBox(width: 8.0),
-              ButtonTheme(
-                minWidth: 55.0,
-                buttonColor: Color(0xffe02a20),
-                child: RaisedButton(
-                  textColor: Colors.white,
-                  child: Icon(
-                    FontAwesomeIcons.youtube,
-                    size: 18.0,
+                Container(
+                  margin: EdgeInsets.only(right: 10.0,),
+                  child: ButtonTheme(
+                    minWidth: 55.0,
+                    buttonColor: Color(0xffe02a20),
+                    child: RaisedButton(
+                      textColor: Colors.white,
+                      child: Icon(
+                        FontAwesomeIcons.youtube,
+                        size: 18.0,
+                      ),
+                      onPressed: () => visitSite(
+                          'https://www.youtube.com/channel/UCa0_hm_SiHxps1Llk_q6I1Q'),
+                    ),
                   ),
-                  onPressed: () => visitSite('https://www.youtube.com/channel/UCa0_hm_SiHxps1Llk_q6I1Q'),
                 ),
-              ),
-              SizedBox(width: 8.0),
-              ButtonTheme(
-                minWidth: 55.0,
-                buttonColor: Colors.black54,
-                child: RaisedButton(
-                  textColor: Colors.white,
-                  child: Icon(
-                    FontAwesomeIcons.slack,
-                    size: 18.0,
+                Container(
+                  margin: EdgeInsets.only(right: 10.0,),
+                  child: ButtonTheme(
+                    minWidth: 55.0,
+                    buttonColor: Colors.black54,
+                    child: RaisedButton(
+                      textColor: Colors.white,
+                      child: Icon(
+                        FontAwesomeIcons.slack,
+                        size: 18.0,
+                      ),
+                      onPressed: () => visitSite('https://github.com/akbarpn136'),
+                    ),
                   ),
-                  onPressed: () => visitSite('https://github.com/akbarpn136'),
                 ),
-              ),
-              SizedBox(width: 8.0),
-              ButtonTheme(
-                minWidth: 55.0,
-                buttonColor: Colors.black,
-                child: RaisedButton(
-                  textColor: Colors.white,
-                  child: Icon(
-                    FontAwesomeIcons.github,
-                    size: 18.0,
+                Container(
+                  margin: EdgeInsets.only(right: 10.0,),
+                  child: ButtonTheme(
+                    minWidth: 55.0,
+                    buttonColor: Colors.black,
+                    child: RaisedButton(
+                      textColor: Colors.white,
+                      child: Icon(
+                        FontAwesomeIcons.github,
+                        size: 18.0,
+                      ),
+                      onPressed: () => visitSite('https://github.com/akbarpn136'),
+                    ),
                   ),
-                  onPressed: () => visitSite('https://github.com/akbarpn136'),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),
