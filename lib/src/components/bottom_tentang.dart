@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:package_info/package_info.dart';
 import 'package:flutter_inappbrowser/flutter_inappbrowser.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'package:bbta3/src/helpers/styles.dart';
 
 class BottomTentang extends StatelessWidget {
   final ChromeSafariBrowser chromeSafariBrowser =
@@ -29,6 +32,16 @@ class BottomTentang extends StatelessWidget {
                 width: 11.0,
               ),
               Image.asset('images/bppt.png'),
+              Expanded(
+                child: Container(
+                  padding: EdgeInsets.only(right: 10.0),
+                  alignment: AlignmentDirectional.centerEnd,
+                  child: Text(
+                    'V2.0.1',
+                    style: versiTitle,
+                  ),
+                ),
+              ),
             ],
           ),
           SizedBox(
