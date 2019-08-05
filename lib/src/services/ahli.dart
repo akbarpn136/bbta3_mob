@@ -10,13 +10,20 @@ class Ahli {
   Ahli({this.page = 1, this.category = 2});
 
   Future<List<dynamic>> readKeahlian() async {
-    var response = await dio.get(KEAHLIAN_URL, queryParameters: {
-      "_embed": true,
-      "page": page,
-      "categories": category,
-      "order": 'asc'
-    });
+    try {
+      var response = await dio.get(KEAHLIAN_URL, queryParameters: {
+        "_embed": true,
+        "page": page,
+        "categories": category,
+        "order": 'asc'
+      });
 
-    return response.data;
+      return response.data;
+    } catch (err) {
+
+      return [{
+        "error": err.error.message,
+      }];
+    }
   }
 }
