@@ -5,7 +5,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:bbta3/src/helpers/styles.dart';
 
-class BottomTentang extends StatelessWidget {
+
+class BottomTentang extends StatefulWidget {
+  @override
+  _BottomTentangState createState() => _BottomTentangState();
+}
+
+class _BottomTentangState extends State<BottomTentang> {
   final ChromeSafariBrowser chromeSafariBrowser =
       ChromeSafariBrowser(InAppBrowser());
 
@@ -16,6 +22,20 @@ class BottomTentang extends StatelessWidget {
       "dismissButtonStyle": 1,
       "preferredBarTintColor": "#000000",
     });
+  }
+
+  Future<String> getVersionNumber() async {
+    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    String version = packageInfo.version;
+    print(version);
+
+    return version;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getVersionNumber();
   }
 
   @override
