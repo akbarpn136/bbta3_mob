@@ -12,6 +12,7 @@ class BottomTentang extends StatefulWidget {
 }
 
 class _BottomTentangState extends State<BottomTentang> {
+  String version = '';
   final ChromeSafariBrowser chromeSafariBrowser =
       ChromeSafariBrowser(InAppBrowser());
 
@@ -24,12 +25,9 @@ class _BottomTentangState extends State<BottomTentang> {
     });
   }
 
-  Future<String> getVersionNumber() async {
+  Future<void> getVersionNumber() async {
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
-    String version = packageInfo.version;
-    print(version);
-
-    return version;
+    version = packageInfo.version;
   }
 
   @override
@@ -57,7 +55,7 @@ class _BottomTentangState extends State<BottomTentang> {
                   padding: EdgeInsets.only(right: 10.0),
                   alignment: AlignmentDirectional.centerEnd,
                   child: Text(
-                    'V2.0.1',
+                    'V$version',
                     style: versiTitle,
                   ),
                 ),
