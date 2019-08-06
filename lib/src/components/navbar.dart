@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
-import 'package:bbta3/src/helpers/styles.dart';
+import 'package:bbta3/src/helpers/variables.dart';
 
 import 'package:bbta3/src/components/bottom_tentang.dart';
 
 class Navbar {
   static AppBar make(String title) {
     return AppBar(
-      elevation: 0.5,
+      elevation: 1.5,
       leading: Container(
         margin: EdgeInsets.only(
           top: 10.0,
@@ -22,9 +22,8 @@ class Navbar {
       ),
       title: Text(
         title,
-        style: HeaderNavBar,
       ),
-      backgroundColor: Colors.red.shade600,
+      backgroundColor: Color(RED),
       actions: <Widget>[
         Builder(
           builder: (context) {
