@@ -1,3 +1,4 @@
+import 'package:bbta3/src/helpers/variables.dart';
 import 'package:flutter/material.dart';
 
 // KEAHLIAN
@@ -22,9 +23,16 @@ const TextStyle versiTitle = TextStyle(
 );
 
 // BERITA
-const TextStyle ItemBeritaStyle = TextStyle(
+const TextStyle JudulItemBeritaStyle = TextStyle(
+  fontSize: 15.0,
+  fontFamily: 'AlfaSlabOne',
+  color: Color(BLUE),
   fontWeight: FontWeight.w400,
+);
+
+const TextStyle SubJudulItemBeritaStyle = TextStyle(
   fontSize: 12.0,
+  color: Color(BLACK),
 );
 
 const TextStyle HeaderBeritaStyle = TextStyle(
