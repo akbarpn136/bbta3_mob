@@ -1,10 +1,11 @@
-import 'package:bbta3/src/helpers/variables.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_inappbrowser/flutter_inappbrowser.dart';
 
+import 'package:bbta3/src/helpers/variables.dart';
 import 'package:bbta3/src/helpers/styles.dart';
+import 'package:bbta3/src/components/bbta3_card.dart';
 import 'package:bbta3/src/services/ahli.dart';
 
 class Keahlian extends StatefulWidget {
@@ -35,26 +36,10 @@ class _KeahlianState extends State<Keahlian> {
       if (ahli.containsKey('error')) {
         ahliCard = Container(
           alignment: AlignmentDirectional.center,
-          child: Container(
-            padding: EdgeInsets.all(19.0),
-            decoration: BoxDecoration(
-              color: Colors.grey.shade100,
-              border: Border(
-                top: BorderSide(
-                  color: Colors.red.shade300,
-                  width: 3.0,
-                ),
-              ),
-              boxShadow: <BoxShadow>[
-                BoxShadow(
-                  color: Colors.black38,
-                  offset: Offset(0.0, 3.0),
-                  blurRadius: 1.5,
-                ),
-              ],
-            ),
-            child: Text(ahli['error']),
-          ),
+          child: BBTA3Card(
+            cardColor: Color(RED),
+            cardChild: Text(ahli['error']),
+          )
         );
       } else {
         String namaKeahlian = ahli['title']['rendered'];
