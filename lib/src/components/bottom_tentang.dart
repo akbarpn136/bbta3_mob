@@ -55,7 +55,7 @@ class _BottomTentangState extends State<BottomTentang> {
                   padding: EdgeInsets.only(right: 10.0),
                   alignment: AlignmentDirectional.centerEnd,
                   child: Text(
-                    'V$version',
+                    'v$version',
                     style: versiTitle,
                   ),
                 ),
