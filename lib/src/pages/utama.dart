@@ -1,7 +1,10 @@
+import 'package:bbta3/src/helpers/variables.dart';
 import 'package:flutter/material.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
 import 'package:bbta3/src/components/navbar.dart';
+
+import 'package:bbta3/src/helpers/themes/default.dart';
 
 import 'package:bbta3/src/pages/keahlian.dart';
 import 'package:bbta3/src/pages/info.dart';
@@ -23,13 +26,16 @@ class _UtamaState extends State<Utama> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(fontFamily: 'FiraSans'),
+      theme: ThemeData(
+        textTheme: DEFAULT_TEXT_THEME,
+        primaryTextTheme: DEFAULT_PRIMARY_TEXT_THEME
+      ),
       home: Scaffold(
         appBar: Navbar.make('BBTA3 BPPT'),
         body: _listPage.elementAt(_selectedIndex),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedIndex,
-          selectedItemColor: Colors.red.shade600,
+          selectedItemColor: Color(RED),
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(EvaIcons.briefcaseOutline),
