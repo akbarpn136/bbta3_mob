@@ -18,6 +18,19 @@ class Info extends StatelessWidget {
               style: HeaderBeritaStyle,
             ),
           ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: 10,
+              itemBuilder: (BuildContext context, int index) {
+                return ItemBerita(
+                  berita: Berita(
+                    judul: 'Judul Berita #$index',
+                    diterbitkan: '20 Mei 2019',
+                  ),
+                );
+              },
+            ),
+          ),
         ],
       ),
     );
