@@ -32,6 +32,7 @@ const TextStyle JudulItemBeritaStyle = TextStyle(
 
 const TextStyle SubJudulItemBeritaStyle = TextStyle(
   fontSize: 12.0,
+  fontStyle: FontStyle.italic,
   color: Color(BLACK),
 );
 
