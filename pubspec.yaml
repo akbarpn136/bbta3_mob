@@ -30,6 +30,7 @@ dependencies:
   flutter_inappbrowser: ^1.2.1
   font_awesome_flutter: ^8.5.0
   package_info: ^0.4.0+6
+  intl: ^0.15.8
 
 dev_dependencies:
   flutter_test:
