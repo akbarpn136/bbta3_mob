@@ -16,19 +16,20 @@ class ItemBerita extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(bottom: 15.0, left: 8.0, right: 8.0),
       child: BBTA3Card(
-        cardColor: Color(GREEN),
+        cardColor: Color(BLACK),
         cardChild: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
               berita.judul,
               style: JudulItemBeritaStyle,
+              maxLines: 2,
             ),
             SizedBox(height: 8.0,),
-            Text(
-              berita.diterbitkan,
+            berita.diterbitkan != null ? Text(
+              'Diterbitkan ${berita.diterbitkan}',
               style: SubJudulItemBeritaStyle,
-            )
+            ) : Container()
           ],
         ),
       ),
