@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_inappbrowser/flutter_inappbrowser.dart';
 
 import 'package:bbta3/src/helpers/variables.dart';
 import 'package:bbta3/src/helpers/styles.dart';
+
 import 'package:bbta3/src/components/bbta3_card.dart';
+import 'package:bbta3/src/components/build_spinner.dart';
+
 import 'package:bbta3/src/services/ahli.dart';
 
 class Keahlian extends StatefulWidget {
@@ -104,13 +106,6 @@ class _KeahlianState extends State<Keahlian> {
     }
   }
 
-  Widget buildSpinner() {
-    return SpinKitFadingFour(
-      color: Color(BLUE),
-      size: 47.0,
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -133,7 +128,7 @@ class _KeahlianState extends State<Keahlian> {
           Expanded(
             flex: 5,
             child: isLoading
-                ? buildSpinner()
+                ? BuildSpinner()
                 : CarouselSlider(
                     enableInfiniteScroll: false,
                     items: keahlianCard,
