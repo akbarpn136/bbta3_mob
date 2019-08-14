@@ -12,7 +12,6 @@ class BBTA3Card extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 18.0, horizontal: 11.0),
       child: cardChild,
       decoration: BoxDecoration(
-        // color: Colors.grey.shade100,
         border: Border(
           top: BorderSide(
             color: cardColor,
