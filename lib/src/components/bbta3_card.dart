@@ -12,20 +12,25 @@ class BBTA3Card extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 18.0, horizontal: 11.0),
       child: cardChild,
       decoration: BoxDecoration(
-        color: Colors.grey.shade100,
+        // color: Colors.grey.shade100,
         border: Border(
           top: BorderSide(
             color: cardColor,
             width: 3.0,
           ),
-        ),
-        boxShadow: <BoxShadow>[
-          BoxShadow(
-            color: Colors.black38,
-            offset: Offset(0.0, 3.0),
-            blurRadius: 1.5,
+          left: BorderSide(
+            color: Colors.grey.shade300,
+            width: 1.0,
           ),
-        ],
+          bottom: BorderSide(
+            color: Colors.grey.shade300,
+            width: 1.0,
+          ),
+          right: BorderSide(
+            color: Colors.grey.shade300,
+            width: 1.0,
+          ),
+        ),
       ),
     );
   }
