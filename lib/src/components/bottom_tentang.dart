@@ -5,7 +5,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:bbta3/src/helpers/styles.dart';
 
-
 class BottomTentang extends StatefulWidget {
   @override
   _BottomTentangState createState() => _BottomTentangState();
@@ -81,7 +80,9 @@ class _BottomTentangState extends State<BottomTentang> {
               scrollDirection: Axis.horizontal,
               children: <Widget>[
                 Container(
-                  margin: EdgeInsets.only(right: 10.0,),
+                  margin: EdgeInsets.only(
+                    right: 10.0,
+                  ),
                   child: ButtonTheme(
                     minWidth: 55.0,
                     buttonColor: Color(0xff3b5998),
@@ -91,13 +92,14 @@ class _BottomTentangState extends State<BottomTentang> {
                         FontAwesomeIcons.facebookF,
                         size: 18.0,
                       ),
-                      onPressed: () =>
-                          visitSite('https://www.facebook.com/BBTA3/'),
+                      onPressed: () => visitSite('http://bit.ly/FacebookBBTA3'),
                     ),
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(right: 10.0,),
+                  margin: EdgeInsets.only(
+                    right: 10.0,
+                  ),
                   child: ButtonTheme(
                     minWidth: 55.0,
                     buttonColor: Color(0xffE1306C),
@@ -108,12 +110,14 @@ class _BottomTentangState extends State<BottomTentang> {
                         size: 18.0,
                       ),
                       onPressed: () =>
-                          visitSite('https://www.instagram.com/bbta3.bppt/'),
+                          visitSite('http://bit.ly/InstagramBBTA3'),
                     ),
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(right: 10.0,),
+                  margin: EdgeInsets.only(
+                    right: 10.0,
+                  ),
                   child: ButtonTheme(
                     minWidth: 55.0,
                     buttonColor: Color(0xff55acee),
@@ -123,13 +127,14 @@ class _BottomTentangState extends State<BottomTentang> {
                         FontAwesomeIcons.twitter,
                         size: 18.0,
                       ),
-                      onPressed: () =>
-                          visitSite('https://twitter.com/@bbta3_bppt'),
+                      onPressed: () => visitSite('http://bit.ly/TwitterBBTA3'),
                     ),
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(right: 10.0,),
+                  margin: EdgeInsets.only(
+                    right: 10.0,
+                  ),
                   child: ButtonTheme(
                     minWidth: 55.0,
                     buttonColor: Color(0xffe02a20),
@@ -139,13 +144,14 @@ class _BottomTentangState extends State<BottomTentang> {
                         FontAwesomeIcons.youtube,
                         size: 18.0,
                       ),
-                      onPressed: () => visitSite(
-                          'https://www.youtube.com/channel/UCa0_hm_SiHxps1Llk_q6I1Q'),
+                      onPressed: () => visitSite('http://bit.ly/YoutubeBBTA3'),
                     ),
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(right: 10.0,),
+                  margin: EdgeInsets.only(
+                    right: 10.0,
+                  ),
                   child: ButtonTheme(
                     minWidth: 55.0,
                     buttonColor: Colors.black54,
@@ -155,12 +161,15 @@ class _BottomTentangState extends State<BottomTentang> {
                         FontAwesomeIcons.slack,
                         size: 18.0,
                       ),
-                      onPressed: () => visitSite('https://github.com/akbarpn136'),
+                      onPressed: () =>
+                          visitSite('http://bit.ly/SlackBBTA3'),
                     ),
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(right: 10.0,),
+                  margin: EdgeInsets.only(
+                    right: 10.0,
+                  ),
                   child: ButtonTheme(
                     minWidth: 55.0,
                     buttonColor: Colors.black,
@@ -170,7 +179,8 @@ class _BottomTentangState extends State<BottomTentang> {
                         FontAwesomeIcons.github,
                         size: 18.0,
                       ),
-                      onPressed: () => visitSite('https://github.com/akbarpn136'),
+                      onPressed: () =>
+                          visitSite('http://bit.ly/GithubAkbarpn136'),
                     ),
                   ),
                 ),
