@@ -79,6 +79,7 @@ class _InfoState extends State<Info> {
               berita: Berita(
                 judul: koleksiBerita[index]['title']['rendered'],
                 diterbitkan: formatter.format(dateTime),
+                link: koleksiBerita[index]['link'],
               ),
             );
           },
