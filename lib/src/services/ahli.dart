@@ -22,7 +22,7 @@ class Ahli {
     } catch (err) {
 
       return [{
-        "error": err.error.message,
+        "error": err.error == null ? err.message : err.error.message,
       }];
     }
   }
