@@ -60,7 +60,7 @@ class _KeahlianState extends State<Keahlian> {
             });
           },
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(gap),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(11.5),
               child: Stack(
