@@ -40,3 +40,9 @@ const TextStyle HeaderBeritaStyle = TextStyle(
   fontFamily: 'AlfaSlabOne',
   fontSize: 15.0,
 );
+
+const TextStyle TeksTombol = TextStyle(
+  fontSize: 16.0,
+  color: Colors.white,
+  fontWeight: FontWeight.w400
+);
