@@ -81,9 +81,17 @@ class _InfoState extends State<Info> {
                 itemCount: jumlahBerita,
                 itemBuilder: (BuildContext context, int index) {
                   if (index >= jumlahBerita - 1) {
-                    return RaisedButton(
-                      onPressed: () {},
-                      child: Text('Muat lagi'),
+                    return Container(
+                      margin: EdgeInsets.only(left: gap, right: gap, bottom: gap),
+                      child: RaisedButton(
+                        onPressed: () {},
+                        color: Color(BLACK),
+                        padding: EdgeInsets.symmetric(vertical: 15.0),
+                        child: Text(
+                          'MUAT LAGI',
+                          style: TeksTombol,
+                        ),
+                      ),
                     );
                   } else {
                     DateTime dateTime =
