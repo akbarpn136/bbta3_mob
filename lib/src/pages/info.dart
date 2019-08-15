@@ -21,6 +21,7 @@ class _InfoState extends State<Info> {
   bool isLoading;
   List<dynamic> koleksiBerita;
   int jumlahBerita;
+  int page = 1;
 
   @override
   void initState() {
@@ -29,23 +30,22 @@ class _InfoState extends State<Info> {
     isLoading = true;
     jumlahBerita = 0;
 
-    buildBerita();
+    buildBerita(page: page);
   }
 
-  void buildBerita() async {
-    BeritaService beritaService = BeritaService();
+  void buildBerita({int page: 1}) async {
+    BeritaService beritaService = BeritaService(page: page);
 
     koleksiBerita = await beritaService.readBerita();
 
+    isLoading = false;
     if (koleksiBerita.first.containsKey('error')) {
       setState(() {
-        isLoading = false;
         jumlahBerita = -1;
       });
     } else {
       setState(() {
-        isLoading = false;
-        jumlahBerita = koleksiBerita.length;
+        jumlahBerita = koleksiBerita.length + 1;
       });
     }
   }
@@ -54,37 +54,52 @@ class _InfoState extends State<Info> {
     DateFormat formatter = DateFormat('dd-MM-yyyy');
 
     if (jumlahBerita == 0) {
-      return isLoading ? BuildSpinner() : Container(
-        margin: EdgeInsets.only(bottom: 15.0, left: 8.0, right: 8.0),
-        child: BBTA3Card(
-          cardColor: Color(BLUE),
-          cardChild: Text('Data masih kosong'),
-        ),
-      );
-    } else if (jumlahBerita == -1) {
-      return isLoading ? BuildSpinner() : Container(
-        margin: EdgeInsets.only(bottom: 15.0, left: 8.0, right: 8.0),
-        child: BBTA3Card(
-          cardColor: Color(RED),
-          cardChild: Text(koleksiBerita.first['error']),
-        ),
-      );
-    } else {
-      return isLoading ? BuildSpinner() : Expanded(
-        child: ListView.builder(
-          itemCount: jumlahBerita,
-          itemBuilder: (BuildContext context, int index) {
-            DateTime dateTime = DateTime.parse(koleksiBerita[index]['date']);
-            return ItemBerita(
-              berita: Berita(
-                judul: koleksiBerita[index]['title']['rendered'],
-                diterbitkan: formatter.format(dateTime),
-                link: koleksiBerita[index]['link'],
+      return isLoading
+          ? BuildSpinner()
+          : Container(
+              margin: EdgeInsets.only(bottom: 15.0, left: 8.0, right: 8.0),
+              child: BBTA3Card(
+                cardColor: Color(BLUE),
+                cardChild: Text('Data masih kosong'),
               ),
             );
-          },
-        ),
-      );
+    } else if (jumlahBerita == -1) {
+      return isLoading
+          ? BuildSpinner()
+          : Container(
+              margin: EdgeInsets.only(bottom: 15.0, left: 8.0, right: 8.0),
+              child: BBTA3Card(
+                cardColor: Color(RED),
+                cardChild: Text(koleksiBerita.first['error']),
+              ),
+            );
+    } else {
+      return isLoading
+          ? BuildSpinner()
+          : Expanded(
+              child: ListView.builder(
+                itemCount: jumlahBerita,
+                itemBuilder: (BuildContext context, int index) {
+                  if (index >= jumlahBerita - 1) {
+                    return RaisedButton(
+                      onPressed: () {},
+                      child: Text('Muat lagi'),
+                    );
+                  } else {
+                    DateTime dateTime =
+                      DateTime.parse(koleksiBerita[index]['date']);
+
+                    return ItemBerita(
+                      berita: Berita(
+                        judul: koleksiBerita[index]['title']['rendered'],
+                        diterbitkan: formatter.format(dateTime),
+                        link: koleksiBerita[index]['link'],
+                      ),
+                    );
+                  }
+                },
+              ),
+            );
     }
   }
 
@@ -95,7 +110,7 @@ class _InfoState extends State<Info> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(gap),
             child: Text(
               'Berita BBTA3',
               style: HeaderBeritaStyle,
