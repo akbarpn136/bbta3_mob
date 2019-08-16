@@ -19,7 +19,7 @@ class Info extends StatefulWidget {
 
 class _InfoState extends State<Info> {
   bool isLoading;
-  List<dynamic> koleksiBerita;
+  List<dynamic> koleksiBerita = [];
   int jumlahBerita;
   int page = 1;
 
@@ -36,7 +36,10 @@ class _InfoState extends State<Info> {
   void buildBerita({int page: 1}) async {
     BeritaService beritaService = BeritaService(page: page);
 
-    koleksiBerita = await beritaService.readBerita();
+    List<dynamic> berita = await beritaService.readBerita();
+    for (var brt in berita) {
+      koleksiBerita.add(brt);
+    }
 
     isLoading = false;
     if (koleksiBerita.first.containsKey('error')) {
@@ -84,7 +87,11 @@ class _InfoState extends State<Info> {
                     return Container(
                       margin: EdgeInsets.only(left: gap, right: gap, bottom: gap),
                       child: RaisedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          page++;
+                          print(page);
+                          buildBerita(page: page);
+                        },
                         color: Color(BLACK),
                         padding: EdgeInsets.symmetric(vertical: 15.0),
                         child: Text(
