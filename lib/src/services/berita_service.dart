@@ -19,7 +19,7 @@ class BeritaService {
     } catch (err) {
 
       return [{
-        "error": err.error == null ? err.message : err.error.message,
+        "error": err.response == null ? err.error.message : err.response.statusCode,
       }];
     }
   }
