@@ -19,6 +19,8 @@ class Info extends StatefulWidget {
 
 class _InfoState extends State<Info> {
   bool isLoading;
+  bool isLoadMore;
+  bool showLoadMore = true;
   List<dynamic> koleksiBerita = [];
   int jumlahBerita;
   int page = 1;
@@ -28,6 +30,7 @@ class _InfoState extends State<Info> {
     super.initState();
 
     isLoading = true;
+    isLoadMore = false;
     jumlahBerita = 0;
 
     buildBerita(page: page);
@@ -37,24 +40,33 @@ class _InfoState extends State<Info> {
     BeritaService beritaService = BeritaService(page: page);
 
     List<dynamic> berita = await beritaService.readBerita();
-    for (var brt in berita) {
-      koleksiBerita.add(brt);
-    }
 
-    isLoading = false;
-    if (koleksiBerita.first.containsKey('error')) {
-      setState(() {
-        jumlahBerita = -1;
-      });
+    if (berita.first.containsKey('error')) {
+      if (berita.first['error'] == 400) {
+        setState(() {
+          showLoadMore = false;
+        });
+      } else {
+        setState(() {
+          jumlahBerita = -1;
+        });
+      }
     } else {
+      for (var brt in berita) {
+        koleksiBerita.add(brt);
+      }
+
       setState(() {
         jumlahBerita = koleksiBerita.length + 1;
       });
     }
+
+    isLoading = false;
+    isLoadMore = false;
   }
 
   Widget emptyOrErrorWidget() {
-    DateFormat formatter = DateFormat('dd-MM-yyyy');
+    DateFormat formatter = DateFormat('dd MMMM yyyy');
 
     if (jumlahBerita == 0) {
       return isLoading
@@ -83,26 +95,35 @@ class _InfoState extends State<Info> {
               child: ListView.builder(
                 itemCount: jumlahBerita,
                 itemBuilder: (BuildContext context, int index) {
-                  if (index >= jumlahBerita - 1) {
-                    return Container(
-                      margin: EdgeInsets.only(left: gap, right: gap, bottom: gap),
-                      child: RaisedButton(
-                        onPressed: () {
-                          page++;
-                          print(page);
-                          buildBerita(page: page);
-                        },
-                        color: Color(BLACK),
-                        padding: EdgeInsets.symmetric(vertical: 15.0),
-                        child: Text(
-                          'MUAT LAGI',
-                          style: TeksTombol,
+                  if (index == jumlahBerita - 1) {
+                    if (isLoadMore) {
+                      return BuildSpinner();
+                    } else if (!showLoadMore) {
+                      return Container();
+                    } else {
+                      return Container(
+                        margin:
+                            EdgeInsets.only(left: gap, right: gap, bottom: gap),
+                        child: RaisedButton(
+                          onPressed: () {
+                            page++;
+                            setState(() {
+                              isLoadMore = true;
+                            });
+                            buildBerita(page: page);
+                          },
+                          color: Color(BLACK),
+                          padding: EdgeInsets.symmetric(vertical: 15.0),
+                          child: Text(
+                            'MUAT LAGI',
+                            style: TeksTombol,
+                          ),
                         ),
-                      ),
-                    );
+                      );
+                    }
                   } else {
                     DateTime dateTime =
-                      DateTime.parse(koleksiBerita[index]['date']);
+                        DateTime.parse(koleksiBerita[index]['date']);
 
                     return ItemBerita(
                       berita: Berita(
