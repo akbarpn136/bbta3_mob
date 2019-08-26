@@ -49,6 +49,7 @@ class _InfoState extends State<Info> {
       } else {
         setState(() {
           jumlahBerita = -1;
+          koleksiBerita.add(berita.first);
         });
       }
     } else {
@@ -85,7 +86,7 @@ class _InfoState extends State<Info> {
               margin: EdgeInsets.only(bottom: 15.0, left: 8.0, right: 8.0),
               child: BBTA3Card(
                 cardColor: Color(RED),
-                cardChild: Text(koleksiBerita.first['error']),
+                cardChild: Text(koleksiBerita.last['error']),
               ),
             );
     } else {
