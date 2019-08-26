@@ -8,7 +8,7 @@ import 'package:bbta3/src/helpers/styles.dart';
 import 'package:bbta3/src/components/bbta3_card.dart';
 import 'package:bbta3/src/components/build_spinner.dart';
 
-import 'package:bbta3/src/services/ahli.dart';
+import 'package:bbta3/src/services/ahli_service.dart';
 
 class Keahlian extends StatefulWidget {
   @override
@@ -28,7 +28,7 @@ class _KeahlianState extends State<Keahlian> {
 
   void buildCardKeahlian() async {
     Widget ahliCard;
-    Ahli keahlian = Ahli();
+    AhliService keahlian = AhliService();
     List<dynamic> dataKeahlian = await keahlian.readKeahlian();
     ChromeSafariBrowser chromeSafariBrowser =
         ChromeSafariBrowser(InAppBrowser());
